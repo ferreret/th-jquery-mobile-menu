@@ -14,15 +14,33 @@ $menu.find("a").each(function () {
 	var href     = $link.attr('href');
 	//Option text is text of link
 	var textLink = $link.text();	
+
 	//Create an option
 	var $newOption = $('<option value="' + href + '">' + textLink + ' </option>');
+
+	if ($link.parent().hasClass('selected')) {
+		$newOption.prop('selected', true);
+	}
+
+
 	///Append option to select
 	$select.append($newOption);
 });
-//Create button 
-	//Bind click to button 
+
+$select.on('change', function () {
 	//Go to select's location
-//Modify CSS to hide links on small width resolution and show button and select
-	//Also hides select and button on larger width and shows links
+	window.location = $select.val();
+})
+
+// //Create button 
+// var $button = $("<button>Go</button>");
+// $menu.append($button);
+// //Bind click to button 
+// $button.on('click', function () {
+// 	//Go to select's location
+// 	window.location = $select.val();
+// });
+	
+
 //Deal with selected options depending on current page
 
